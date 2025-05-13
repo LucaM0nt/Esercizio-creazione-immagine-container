@@ -1,0 +1,15 @@
+# src/Dockerfile
+
+FROM node:20
+
+WORKDIR /app
+
+# Copia i file del backend
+COPY src/ .
+
+# Copia anche i file HTML della cartella public
+COPY public/ ../public
+
+RUN npm install
+
+CMD ["npm", "start"]

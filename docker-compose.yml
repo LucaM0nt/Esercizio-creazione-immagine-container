@@ -1,0 +1,15 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    ports:
+      - "4000:4000"
+    working_dir: /app
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+    - ./public/view:/usr/share/nginx/html:ro
